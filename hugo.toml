@@ -1,4 +1,4 @@
-baseURL = 'https://Mars-Cheng.github.io/marscheng.me/'
+baseURL = 'https://marscheng.me/'
 relativeURLs = true
 defaultContentLanguage = 'zh-tw'
 defaultContentLanguageInSubdir = false
