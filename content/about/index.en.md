@@ -1,7 +1,7 @@
 ---
 title: "About"
-date: 2026-04-22
-lastmod: 2026-04-22
+date: 2026-04-22T00:00:00+08:00
+lastmod: 2026-04-22T00:00:00+08:00
 ---
 
 ## About Mars Cheng

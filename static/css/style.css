@@ -450,6 +450,10 @@ main.container {
   overflow: hidden;
 }
 
+.home-section > .card + .card {
+  margin-top: 1.15rem;
+}
+
 .card-body,
 .single {
   padding: 1.6rem;
@@ -578,7 +582,11 @@ main.container {
 .archive-group ol,
 .archive-group ul {
   margin: 0;
-  padding: 1rem 1.6rem 1.25rem 3rem;
+  padding: 1rem 1.6rem 1.25rem 3.4rem;
+}
+
+.archive-group ol li {
+  padding-left: 0.35rem;
 }
 
 .archive-group li + li {
