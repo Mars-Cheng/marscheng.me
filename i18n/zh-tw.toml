@@ -1,0 +1,53 @@
+[selected_experience]
+other = "精選經歷"
+
+[explore_all]
+other = "查看全部"
+
+[view_experience]
+other = "查看經歷"
+
+[speaking_training]
+other = "演講與授課"
+
+[base_label]
+other = "所在地"
+
+[focus_label]
+other = "專注領域"
+
+[contact_label]
+other = "聯絡方式"
+
+[focus_value]
+other = "ICS/OT/CPS Security • Threat Research • PSIRT • AI Security • Malware Analysis • Threat Operation • Blue Team • Enterprise Security • Threat Intelligence and Hunting"
+
+[international_talks]
+other = "國際演講場次"
+
+[trainings_delivered]
+other = "授課與訓練場次"
+
+[security_experience]
+other = "年資安技術與從業經驗"
+
+[community_experience]
+other = "年資安社群經驗"
+
+[speaking_themes]
+other = "近期演講與分享"
+
+[see_all]
+other = "查看全部"
+
+[photo_storytelling]
+other = "照片與現場紀錄"
+
+[photo_storytelling_body]
+other = "下一步最值得補強的是證據型照片，例如演講現場、授課教室、活動籌辦與工作場景。現在這個架構已經能自然地把這些素材放進來。"
+
+[built_footer]
+other = "用來整理研究、領導、與公共利益資安工作的個人網站。"
+
+[language_switch]
+other = "語言"

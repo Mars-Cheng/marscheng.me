@@ -1,0 +1,53 @@
+[selected_experience]
+other = "Selected Experience"
+
+[explore_all]
+other = "Explore all"
+
+[view_experience]
+other = "View Experience"
+
+[speaking_training]
+other = "Speaking & Training"
+
+[base_label]
+other = "Base"
+
+[focus_label]
+other = "Focus"
+
+[contact_label]
+other = "Contact"
+
+[focus_value]
+other = "ICS/OT/CPS Security • Threat Research • PSIRT • AI Security • Malware Analysis • Threat Operation • Blue Team • Enterprise Security • Threat Intelligence and Hunting"
+
+[international_talks]
+other = "International talks"
+
+[trainings_delivered]
+other = "Trainings delivered"
+
+[security_experience]
+other = "Years in security engineering"
+
+[community_experience]
+other = "Years in security community"
+
+[speaking_themes]
+other = "Recent Talks and Sharing"
+
+[see_all]
+other = "See all"
+
+[photo_storytelling]
+other = "Photos and Field Context"
+
+[photo_storytelling_body]
+other = "The strongest additions from here will be evidence-rich visuals: stage photos, training rooms, organizer moments, and field context tied to specific experiences. The site structure now makes that easy to add later without redesigning everything."
+
+[built_footer]
+other = "Built to document research, leadership, and public-interest security work."
+
+[language_switch]
+other = "Language"

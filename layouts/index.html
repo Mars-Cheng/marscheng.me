@@ -1,0 +1,110 @@
+{{ define "main" }}
+<section class="hero hero-grid">
+  <div class="hero-copy">
+    <p class="eyebrow">{{ .Site.Params.hero_kicker }}</p>
+    <h1>{{ .Site.Params.author }}</h1>
+    <p class="hero-role">{{ .Site.Params.role }}{{ with .Site.Params.organization }} · {{ . }}{{ end }}</p>
+    <p class="hero-lead">{{ .Site.Params.hero_intro }}</p>
+    <p class="hero-subtitle">{{ .Site.Params.hero_statement }}</p>
+    {{ with .Site.Params.hero_summary }}
+    <p class="hero-summary">{{ . }}</p>
+    {{ end }}
+    <div class="hero-links">
+      <a href="{{ "/experience/" | relLangURL }}" class="btn">{{ T "view_experience" }}</a>
+      <a href="{{ "/talks/" | relLangURL }}" class="btn btn-outline">{{ T "speaking_training" }}</a>
+    </div>
+  </div>
+  <aside class="hero-panel">
+    {{ with .Site.Params.profile_image }}
+    <div class="hero-portrait-frame">
+      <img src="{{ . }}" alt="{{ $.Site.Params.profile_alt }}" class="hero-portrait">
+    </div>
+    {{ end }}
+    <div class="signal-card">
+      <p class="signal-label">{{ T "base_label" }}</p>
+      <p class="signal-value">{{ .Site.Params.location }}</p>
+    </div>
+    <div class="signal-card">
+      <p class="signal-label">{{ T "focus_label" }}</p>
+      <p class="signal-value">{{ T "focus_value" }}</p>
+    </div>
+    <div class="signal-card">
+      <p class="signal-label">{{ T "contact_label" }}</p>
+      <p class="signal-value"><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+    </div>
+  </aside>
+</section>
+
+<section class="stats-band">
+  <div class="stat">
+    <span class="stat-value">{{ .Site.Params.stats_talks }}</span>
+    <span class="stat-label">{{ T "international_talks" }}</span>
+  </div>
+  <div class="stat">
+    <span class="stat-value">{{ .Site.Params.stats_trainings }}</span>
+    <span class="stat-label">{{ T "trainings_delivered" }}</span>
+  </div>
+  <div class="stat">
+    <span class="stat-value">{{ .Site.Params.stats_experience }}</span>
+    <span class="stat-label">{{ T "security_experience" }}</span>
+  </div>
+  <div class="stat">
+    <span class="stat-value">{{ .Site.Params.stats_community }}</span>
+    <span class="stat-label">{{ T "community_experience" }}</span>
+  </div>
+</section>
+
+<section class="home-section home-section-tight">
+  <div class="section-header">
+    <h2>{{ T "selected_experience" }}</h2>
+    <a href="{{ "/experience/" | relLangURL }}" class="see-all">{{ T "explore_all" }} &rarr;</a>
+  </div>
+  <div class="feature-grid">
+    {{ range first 3 (where (where .Site.RegularPages "Section" "experience") ".Params.featured" true) }}
+    <article class="feature-card">
+      <p class="feature-kicker">{{ with .Params.period }}{{ . }}{{ end }}</p>
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p class="feature-meta">{{ with .Params.role }}{{ . }}{{ end }}{{ with .Params.organization }} · {{ . }}{{ end }}</p>
+      {{ with .Params.summary }}
+      <p class="feature-summary">{{ . }}</p>
+      {{ end }}
+      {{ with .Params.tags }}
+      <div class="tag-row">
+        {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</section>
+
+{{ with (where .Site.RegularPages "Section" "talks") }}
+<section class="home-section">
+  <div class="section-header">
+    <h2>{{ T "speaking_themes" }}</h2>
+    <a href="{{ "/talks/" | relLangURL }}" class="see-all">{{ T "see_all" }} &rarr;</a>
+  </div>
+  {{ range first 3 (sort . "Date" "desc") }}
+  <article class="card">
+    <div class="card-body">
+      <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <div class="card-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        {{ with .Params.event }}<span class="card-event">{{ . }}</span>{{ end }}
+      </div>
+      {{ with .Params.summary }}<p class="card-summary">{{ . }}</p>{{ end }}
+    </div>
+  </article>
+  {{ end }}
+</section>
+{{ end }}
+
+<section class="home-section">
+  <div class="section-header">
+    <h2>{{ T "photo_storytelling" }}</h2>
+  </div>
+  <div class="photo-note">
+    <p>{{ T "photo_storytelling_body" }}</p>
+  </div>
+</section>
+{{ end }}

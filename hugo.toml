@@ -1,0 +1,110 @@
+baseURL = 'https://mars-cheng.github.io/'
+defaultContentLanguage = 'zh-tw'
+defaultContentLanguageInSubdir = false
+paginate = 10
+title = 'Mars Cheng'
+
+[languages]
+  [languages.zh-tw]
+    languageCode = 'zh-TW'
+    languageName = '中文'
+    title = 'Mars Cheng'
+    weight = 1
+    contentDir = 'content'
+    [languages.zh-tw.params]
+      description = 'Mars Cheng 現為 TXOne Networks 資安威脅與產品防護中心資深經理、台灣駭客協會常務理事與 HITCON CISO Summit 2026 總召集人，長期投入產品防禦、威脅研究、國際演講與資安人才培育。'
+      author = 'Mars Cheng'
+      role = 'TXOne Networks Inc. 資安威脅與產品防護中心 資深經理 / 台灣駭客協會常務理事'
+      organization = ''
+      profile_image = '/images/Mars_Cheng__resized.jpg'
+      profile_alt = 'Mars Cheng 個人照片'
+      location = 'Taipei, Taiwan'
+      email = 'mars_cheng@hitcon.org'
+      github = ''
+      facebook = 'https://www.facebook.com/mars.cheng82'
+      linkedin = 'https://www.linkedin.com/in/marscheng93/'
+      x = ''
+      hero_kicker = '資安技術 • 先進威脅研究 • 產品安全 • 資安技術與管理顧問 • 國際交流 • 資安社群'
+      hero_intro = 'Mars Cheng 目前為 TXOne Networks 資安威脅與產品防護中心資深經理，負責協調產品資安事件與應變、威脅偵測營運及先進威脅研究等事宜，同時亦擔任台灣駭客協會常務理事與 HITCON CISO Summit 2026 總召集人。'
+      hero_statement = 'Mars 長期投入國際演講、教育訓練、ICS／SCADA 與企業網路安全研究、威脅獵捕與新興資安議題，並持續推進社群、企業與政府之間的資安合作。'
+      hero_summary = '累計已於 Black Hat、RSA Conference、DEF CON、FIRST、HITB、HITCON、Troopers、SecTor、S4、CYBERSEC 等場域分享超過 65 場次，並於 NATO CCDCOE、GCC、NICS 與多個政府及企業單位講授超過 30 場課程。'
+      stats_talks = '65+'
+      stats_trainings = '30+'
+      stats_experience = '10+'
+      stats_community = '6+'
+    [[languages.zh-tw.menu.main]]
+      name = '首頁'
+      url = '/'
+      weight = 1
+    [[languages.zh-tw.menu.main]]
+      name = '經歷'
+      url = '/experience/'
+      weight = 2
+    [[languages.zh-tw.menu.main]]
+      name = '演講'
+      url = '/talks/'
+      weight = 3
+    [[languages.zh-tw.menu.main]]
+      name = '關於我'
+      url = '/about/'
+      weight = 4
+    [[languages.zh-tw.menu.main]]
+      name = '文章'
+      url = '/blog/'
+      weight = 5
+
+  [languages.en]
+    languageCode = 'en-US'
+    languageName = 'English'
+    title = 'Mars Cheng'
+    weight = 2
+    [languages.en.params]
+      description = 'Mars Cheng is a Senior Manager at TXOne Networks, Executive Director of the Association of Hackers in Taiwan, and General Coordinator of HITCON CISO Summit 2026, focused on product defense, threat research, international speaking, and cybersecurity education.'
+      author = 'Mars Cheng'
+      role = 'Senior Manager, Cyber Threat & Product Defense Center, TXOne Networks Inc. / Executive Director, Association of Hackers in Taiwan'
+      organization = ''
+      profile_image = '/images/Mars_Cheng__resized.jpg'
+      profile_alt = 'Portrait of Mars Cheng'
+      location = 'Taipei, Taiwan'
+      email = 'mars_cheng@hitcon.org'
+      github = ''
+      facebook = 'https://www.facebook.com/mars.cheng82'
+      linkedin = 'https://www.linkedin.com/in/marscheng93/'
+      x = ''
+      hero_kicker = 'Security Engineering • Advanced Threat Research • Product Security • Advisory • International Engagement • Community'
+      hero_intro = "Mars Cheng is the Senior Manager of TXOne Networks' Cyber Threat & Product Defense Center, responsible for coordinating product security incident response, threat detection operations, and advanced threat research. He also serves as Executive Director of the Association of Hackers in Taiwan and General Coordinator of HITCON CISO Summit 2026."
+      hero_statement = 'His work spans international speaking, instructor-led training, ICS/SCADA and enterprise security research, threat hunting, and long-term collaboration across the security community, industry, and government.'
+      hero_summary = 'He has delivered more than 65 talks at venues including Black Hat, RSA Conference, DEF CON, FIRST, HITB, HITCON, Troopers, SecTor, S4, and CYBERSEC, and more than 30 training sessions for NATO CCDCOE, GCC, NICS, government agencies, and private-sector organizations.'
+      stats_talks = '65+'
+      stats_trainings = '30+'
+      stats_experience = '10+'
+      stats_community = '6+'
+    [[languages.en.menu.main]]
+      name = 'Home'
+      url = '/'
+      weight = 1
+    [[languages.en.menu.main]]
+      name = 'Experience'
+      url = '/experience/'
+      weight = 2
+    [[languages.en.menu.main]]
+      name = 'Talks'
+      url = '/talks/'
+      weight = 3
+    [[languages.en.menu.main]]
+      name = 'About'
+      url = '/about/'
+      weight = 4
+    [[languages.en.menu.main]]
+      name = 'Writing'
+      url = '/blog/'
+      weight = 5
+
+[outputs]
+  home = ['HTML']
+  section = ['HTML']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

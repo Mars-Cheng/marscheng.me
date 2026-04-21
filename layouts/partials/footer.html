@@ -1,0 +1,12 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. {{ T "built_footer" }}</p>
+    <div class="footer-links">
+      {{ with .Site.Params.github }}<a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+      {{ with .Site.Params.facebook }}<a href="{{ . }}" target="_blank" rel="noopener">Facebook</a>{{ end }}
+      {{ with .Site.Params.linkedin }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+      {{ with .Site.Params.x }}<a href="{{ . }}" target="_blank" rel="noopener">X</a>{{ end }}
+      {{ with .Site.Params.email }}<a href="mailto:{{ . }}">Email</a>{{ end }}
+    </div>
+  </div>
+</footer>

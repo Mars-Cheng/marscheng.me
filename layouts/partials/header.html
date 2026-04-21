@@ -1,0 +1,40 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="{{ .Site.Home.RelPermalink }}" class="site-logo">
+      <span class="site-logo-mark">MC</span>
+      <span class="site-logo-text">{{ .Site.Params.author }}</span>
+    </a>
+    <nav class="site-nav">
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL | relLangURL }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+    {{ $zh := "" }}
+    {{ $en := "" }}
+    {{ if eq .Lang "zh-tw" }}
+      {{ $zh = .RelPermalink }}
+    {{ else }}
+      {{ with index (where .AllTranslations "Lang" "zh-tw") 0 }}
+        {{ $zh = .RelPermalink }}
+      {{ else }}
+        {{ $zh = "/" | relLangURL }}
+      {{ end }}
+    {{ end }}
+    {{ if eq .Lang "en" }}
+      {{ $en = .RelPermalink }}
+    {{ else }}
+      {{ with index (where .AllTranslations "Lang" "en") 0 }}
+        {{ $en = .RelPermalink }}
+      {{ else }}
+        {{ $en = "/en/" }}
+      {{ end }}
+    {{ end }}
+    <div class="lang-switch" aria-label="{{ T "language_switch" }}">
+      <a class="lang-link {{ if eq .Lang "zh-tw" }}active{{ end }}" href="{{ $zh }}">中文</a>
+      <a class="lang-link {{ if eq .Lang "en" }}active{{ end }}" href="{{ $en }}">English</a>
+    </div>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
