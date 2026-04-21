@@ -1,12 +1,22 @@
 <header class="site-header">
   <div class="container header-inner">
-    <a href="{{ .Site.Home.RelPermalink }}" class="site-logo">
+    <a href="{{ partial "root-relative.html" (dict "page" . "target" .Site.Home.RelPermalink) }}" class="site-logo">
       <span class="site-logo-mark">MC</span>
       <span class="site-logo-text">{{ .Site.Params.author }}</span>
     </a>
     <nav class="site-nav">
-      {{ range .Site.Menus.main }}
-        <a href="{{ .URL | relLangURL }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
+      {{ if eq .Lang "en" }}
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "en/") }}" class="{{ if .IsHome }}active{{ end }}">Home</a>
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "en/experience/") }}" class="{{ if eq .Section "experience" }}active{{ end }}">Experience</a>
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "en/talks/") }}" class="{{ if eq .Section "talks" }}active{{ end }}">Talks</a>
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "en/about/") }}" class="{{ if and (eq .Section "about") (not .IsHome) }}active{{ end }}">About</a>
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "en/blog/") }}" class="{{ if eq .Section "blog" }}active{{ end }}">Writing</a>
+      {{ else }}
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "") }}" class="{{ if .IsHome }}active{{ end }}">首頁</a>
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "experience/") }}" class="{{ if eq .Section "experience" }}active{{ end }}">經歷</a>
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "talks/") }}" class="{{ if eq .Section "talks" }}active{{ end }}">演講</a>
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "about/") }}" class="{{ if and (eq .Section "about") (not .IsHome) }}active{{ end }}">關於我</a>
+        <a href="{{ partial "root-relative.html" (dict "page" . "target" "blog/") }}" class="{{ if eq .Section "blog" }}active{{ end }}">文章</a>
       {{ end }}
     </nav>
     {{ $zh := "" }}
@@ -17,7 +27,7 @@
       {{ with index (where .AllTranslations "Lang" "zh-tw") 0 }}
         {{ $zh = .RelPermalink }}
       {{ else }}
-        {{ $zh = "/" | relLangURL }}
+        {{ $zh = "" | relLangURL }}
       {{ end }}
     {{ end }}
     {{ if eq .Lang "en" }}
@@ -26,12 +36,12 @@
       {{ with index (where .AllTranslations "Lang" "en") 0 }}
         {{ $en = .RelPermalink }}
       {{ else }}
-        {{ $en = "/en/" }}
+        {{ $en = "en/" | relLangURL }}
       {{ end }}
     {{ end }}
     <div class="lang-switch" aria-label="{{ T "language_switch" }}">
-      <a class="lang-link {{ if eq .Lang "zh-tw" }}active{{ end }}" href="{{ $zh }}">中文</a>
-      <a class="lang-link {{ if eq .Lang "en" }}active{{ end }}" href="{{ $en }}">English</a>
+      <a class="lang-link {{ if eq .Lang "zh-tw" }}active{{ end }}" href="{{ partial "root-relative.html" (dict "page" . "target" $zh) }}">中文</a>
+      <a class="lang-link {{ if eq .Lang "en" }}active{{ end }}" href="{{ partial "root-relative.html" (dict "page" . "target" $en) }}">English</a>
     </div>
     <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>

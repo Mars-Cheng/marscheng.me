@@ -1,0 +1,34 @@
+{{- $page := .page -}}
+{{- $target := .target | default "" -}}
+{{- if or (hasPrefix $target "http://") (hasPrefix $target "https://") (hasPrefix $target "mailto:") (hasPrefix $target "#") -}}
+  {{- $target -}}
+{{- else -}}
+  {{- $basePath := "" -}}
+  {{- with urls.Parse $page.Site.BaseURL -}}
+    {{- $basePath = .Path -}}
+  {{- end -}}
+  {{- $current := $page.RelPermalink -}}
+  {{- $basePath = strings.TrimPrefix "/" $basePath -}}
+  {{- $current = strings.TrimPrefix "/" $current -}}
+  {{- $target = strings.TrimPrefix "/" $target -}}
+  {{- if $basePath -}}
+    {{- if hasPrefix $current $basePath -}}
+      {{- $current = strings.Substr $current (len $basePath) -}}
+    {{- end -}}
+    {{- if hasPrefix $target $basePath -}}
+      {{- $target = strings.Substr $target (len $basePath) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $current = strings.TrimSuffix "/" $current -}}
+  {{- $prefix := "" -}}
+  {{- if ne $current "" -}}
+    {{- range split $current "/" -}}
+      {{- $prefix = printf "%s../" $prefix -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if eq $target "" -}}
+    {{- if eq $prefix "" -}}./{{- else -}}{{- $prefix -}}{{- end -}}
+  {{- else -}}
+    {{- printf "%s%s" $prefix $target -}}
+  {{- end -}}
+{{- end -}}

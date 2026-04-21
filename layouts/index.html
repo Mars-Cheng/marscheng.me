@@ -10,14 +10,14 @@
     <p class="hero-summary">{{ . }}</p>
     {{ end }}
     <div class="hero-links">
-      <a href="{{ "/experience/" | relLangURL }}" class="btn">{{ T "view_experience" }}</a>
-      <a href="{{ "/talks/" | relLangURL }}" class="btn btn-outline">{{ T "speaking_training" }}</a>
+      <a href="{{ partial "root-relative.html" (dict "page" . "target" ("experience/" | relLangURL)) }}" class="btn">{{ T "view_experience" }}</a>
+      <a href="{{ partial "root-relative.html" (dict "page" . "target" ("talks/" | relLangURL)) }}" class="btn btn-outline">{{ T "speaking_training" }}</a>
     </div>
   </div>
   <aside class="hero-panel">
     {{ with .Site.Params.profile_image }}
     <div class="hero-portrait-frame">
-      <img src="{{ . }}" alt="{{ $.Site.Params.profile_alt }}" class="hero-portrait">
+      <img src="{{ partial "root-relative.html" (dict "page" $ "target" (. | relURL)) }}" alt="{{ $.Site.Params.profile_alt }}" class="hero-portrait">
     </div>
     {{ end }}
     <div class="signal-card">
@@ -57,13 +57,13 @@
 <section class="home-section home-section-tight">
   <div class="section-header">
     <h2>{{ T "selected_experience" }}</h2>
-    <a href="{{ "/experience/" | relLangURL }}" class="see-all">{{ T "explore_all" }} &rarr;</a>
+    <a href="{{ partial "root-relative.html" (dict "page" . "target" ("experience/" | relLangURL)) }}" class="see-all">{{ T "explore_all" }} &rarr;</a>
   </div>
   <div class="feature-grid">
     {{ range first 3 (where (where .Site.RegularPages "Section" "experience") ".Params.featured" true) }}
     <article class="feature-card">
       <p class="feature-kicker">{{ with .Params.period }}{{ . }}{{ end }}</p>
-      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <h3><a href="{{ partial "root-relative.html" (dict "page" $ "target" .RelPermalink) }}">{{ .Title }}</a></h3>
       <p class="feature-meta">{{ with .Params.role }}{{ . }}{{ end }}{{ with .Params.organization }} · {{ . }}{{ end }}</p>
       {{ with .Params.summary }}
       <p class="feature-summary">{{ . }}</p>
@@ -82,12 +82,12 @@
 <section class="home-section">
   <div class="section-header">
     <h2>{{ T "speaking_themes" }}</h2>
-    <a href="{{ "/talks/" | relLangURL }}" class="see-all">{{ T "see_all" }} &rarr;</a>
+    <a href="{{ partial "root-relative.html" (dict "page" $ "target" ("talks/" | relLangURL)) }}" class="see-all">{{ T "see_all" }} &rarr;</a>
   </div>
   {{ range first 3 (sort . "Date" "desc") }}
   <article class="card">
     <div class="card-body">
-      <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <h3 class="card-title"><a href="{{ partial "root-relative.html" (dict "page" $ "target" .RelPermalink) }}">{{ .Title }}</a></h3>
       <div class="card-meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
         {{ with .Params.event }}<span class="card-event">{{ . }}</span>{{ end }}

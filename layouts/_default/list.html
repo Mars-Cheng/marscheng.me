@@ -7,7 +7,7 @@
   {{ range .Pages.ByDate.Reverse }}
   <article class="card">
     <div class="card-body">
-      <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <h2 class="card-title"><a href="{{ partial "root-relative.html" (dict "page" $ "target" .RelPermalink) }}">{{ .Title }}</a></h2>
       <div class="card-meta">
         {{ with .Params.period }}<span>{{ . }}</span>{{ else }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>{{ end }}
         {{ with .Params.event }}<span class="card-event">{{ . }}</span>{{ end }}
