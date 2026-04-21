@@ -441,8 +441,8 @@ main.container {
 
 .content-list {
   display: grid;
-  gap: 1rem;
-  margin-top: 1.25rem;
+  gap: 1.35rem;
+  margin-top: 1.5rem;
 }
 
 .card {
@@ -578,7 +578,7 @@ main.container {
 .archive-group ol,
 .archive-group ul {
   margin: 0;
-  padding: 1rem 1.4rem 1.2rem 2.4rem;
+  padding: 1rem 1.6rem 1.25rem 3rem;
 }
 
 .archive-group li + li {
