@@ -1,4 +1,4 @@
-baseURL = 'https://marscheng.me/'
+baseURL = 'https://Mars-Cheng.github.io/marscheng.me/'
 defaultContentLanguage = 'zh-tw'
 defaultContentLanguageInSubdir = false
 paginate = 10
